@@ -14,10 +14,15 @@
     "url": "git://github.com/JMPerez/spotify-web-api-js"
   },
   "devDependencies": {
+    "@types/core-js": "^2.5.0",
     "@types/jest": "^23.3.5",
+    "@types/query-string": "^6.1.1",
+    "core-js": "^2.5.7",
     "coveralls": "^3.0.2",
     "husky": "^1.1.2",
+    "isomorphic-fetch": "^2.2.1",
     "jest": "^23.6.0",
+    "jest-fetch-mock": "^1.6.6",
     "prettier": "^1.14.3",
     "pretty-quick": "^1.8.0",
     "ts-jest": "^23.10.4",
@@ -29,12 +34,17 @@
   "jest": {
     "verbose": true,
     "testURL": "http://localhost/",
-    "preset": "ts-jest"
+    "preset": "ts-jest",
+    "automock": false,
+    "setupFiles": [
+      "./setupJest.js"
+    ]
   },
   "scripts": {
     "lint": "tslint -c tslint.json src/**/*/ts",
     "precommit": "pretty-quick --staged",
     "test": "npm run lint && jest --coverage",
+    "test:watch": "npm run lint && jest --watch",
     "travis": "npm test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "files": [

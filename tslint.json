@@ -6,6 +6,6 @@
   ],
   "rules": {
     "interface-name": [true, "never-prefix"],
-    "quotemark": [true, "single"]
+    "no-implicit-dependencies": [true, "dev"]
   }
 }
